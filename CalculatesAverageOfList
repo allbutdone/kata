@@ -1,0 +1,12 @@
+/* TASK: Write function avg which calculates average of numbers in given list.
+SOLUTION */
+
+
+function find_average(array) {
+  
+  return (array.reduce((x,y)=>x+y))/array.length;
+}
+
+/*
+TEST
+find_average([1,2,3])
