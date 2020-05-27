@@ -15,7 +15,11 @@ function accum(s) {
   return newS.map(x=>(x.charAt(0).toUpperCase())+x.slice(1).toLowerCase()).join("-")
 }
 
-
+/*another solution 
+function accum(s) {
+  return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+}
+*/
 /* TEST
 example:
   if(accum("ZpglnRxqenU")==="Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"){console.log(true)}else{console.log(false)}
