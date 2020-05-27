@@ -6,15 +6,16 @@ Given a string, detect whether or not it is a pangram. Return True if it is, Fal
 SOLUTION */
 
 function isPangram(string){
-
-let check =string.toLowerCase().split("").filter((x,y,z)=>z.indexOf(x)===y).sort().reverse().slice(0,26).join("");
-//.sort().reverse().join(""))
-let origin="abcdefghijklmnopqrstuvwxyz"
-
-return (origin.split("").reverse().join(""))===check
+  return 'abcdefghijklmnopqrstuvwxyz'
+    .split('')
+    .every((x) => string.toLowerCase().includes(x));
 }
 
+
 /*
+
+
+
 TEST
 
 var string = "The quick brown 1fox jumps over5 the lazy dog." /*TRUE*/
