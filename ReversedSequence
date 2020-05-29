@@ -1,0 +1,24 @@
+/* TASK:
+
+Get the number n (n>0) to return the reversed sequence from n to 1.
+
+Example : n=5 >> [5,4,3,2,1]
+
+SOLUTION*/
+
+
+
+const reverseSeq = n => {
+  let arr=[];
+  
+  for(let x=n;x>0;x--)
+  arr.push(x)
+  
+  return arr;
+};
+
+
+/*
+TEST:
+
+reverseSeq(5)  -->should return [5, 4, 3, 2, 1]
