@@ -1,0 +1,77 @@
+
+/* TASK:
+
+Description:
+Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string '(integer) is prime' (null in C#) (use Either String a in Haskell and Result<Vec<u32>, String> in Rust).
+
+Example:
+divisors(12); // should return [2,3,4,6]
+divisors(25); // should return [5]
+divisors(13); // should return "13 is prime"
+SOLUTION: */
+
+
+
+
+
+
+
+
+
+
+function divisors(integer) {
+let arr=[];
+  for(let x=2;x<=Math.round(integer/2);x++){
+  if(integer%x==0){arr.push(x)}}
+  
+  return arr.length ?arr:`${integer} is prime`
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+Test Cases:
+Test.assertDeepEquals(divisors(15), [3,5], "The array is not what was expected");
+Test.assertDeepEquals(divisors(253), [11,23], "The array is not what was expected");
+Test.assertDeepEquals(divisors(24), [2,3,4,6,8,12], "The array is not what was expected");
+
+Test.assertDeepEquals(divisors(13), "13 is prime", "The array is not what was expected");
+Test.assertDeepEquals(divisors(3), "3 is prime", "The array is not what was expected");
+Test.assertDeepEquals(divisors(29), "29 is prime", "The array is not what was expected");
+
+function divisors1(i) {
+  
+  var div = [];
+
+  for (var j = 2; j <= i / 2; j++) {
+      var k = i % j;
+    
+      if  (k === 0) {
+          div[div.length] = j;
+      }
+  }
+
+  if (div.length === 0) {
+    return i.toString() + " is prime";
+  } else {
+    return div;
+  }
+}
+
+var a = Math.floor(Math.random() * 100 + 2);
+var b = Math.floor(Math.random() * 100 + 2);
+var c = Math.floor(Math.random() * 100 + 2);
+
+Test.assertDeepEquals(divisors(a), divisors1(a));
+Test.assertDeepEquals(divisors(b), divisors1(b));
+Test.assertDeepEquals(divisors(c), divisors1(c));
+
