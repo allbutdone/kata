@@ -1,0 +1,62 @@
+/* TASK:
+Instructions
+Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
+
+Example
+Test.assertSimilar( capitals('CodEWaRs'), [0,3,4,6] );
+SOLUTION */
+
+
+
+
+
+var capitals = function (word) {
+let CapArr=[];
+  for(let x=0;x<word.length;x++){
+if(word.charAt(x)==word.charAt(x).toUpperCase()){
+ CapArr.push(x)}
+
+}
+
+return CapArr
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*TEST:
+
+var alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+var solution = function (word) {
+  return word.split('').reduce(function (result, char, index) {
+    var code = char.charCodeAt(0);
+    if (code >= 65 && code <= 90) {
+      result.push(index);
+    }
+    
+    return result;
+  }, []);
+};
+
+for (var i = 0; i < 20; i++) {
+  var shuffled = alphabet.split('').sort(function () { return Math.random() - .5; });
+  var word = shuffled.slice(0, 10).join('');
+  
+  Test.assertSimilar(capitals(word), solution(word));
+}
