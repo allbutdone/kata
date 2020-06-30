@@ -1,0 +1,287 @@
+/* TASK:
+TAsk
+Your friend has invited you to watch a tennis match at a local sports club. Since tennis isn't your favorite sport, you get bored right at the start of the first game and start looking for something to keep yourself entertained. Noticing the scoreboard, you realize you don't even know how many points have been won since the game started, so you decided to calculate this number. Given the current score, your goal is to find the number of points won in the current game.
+
+If you are not familiar with tennis rules, here's a short description of its scoring system. Score calling is unique in tennis: each point has a corresponding call that is different from its point value. The table of points won and corresponding calls is given below.
+
++----------------------+--------------------+
+| Number of points won | Corresponding call |
++----------------------+--------------------+
+|          0           |      "love"        |
++----------------------+--------------------+
+|          1           |       "15"         |
++----------------------+--------------------+
+|          2           |       "30"         |
++----------------------+--------------------+
+|          3           |       "40"         |
++----------------------+--------------------+
+There's an additional rule to remember: when players are tied by one or two points, the score is described as "15-all" and "30-all", respectively.
+
+It's guaranteed that no more than 5 points have been won so far, and the game is not over yet. It is also guaranteed that at least one point has been won.
+
+Input/Output
+[input] string score
+
+A string in the format <p1>-<p2> representing a valid score, where <p1> is the first player's score, and <p2> is the second player's score.
+
+[output] an integer
+
+The number of points won so far.
+
+Example
+For score = "15-40", the output should be 4.
+
+The first player won 1 point, and the second 3, so 1 + 3 = 4 points have been won.
+
+For score = "30-all", the output should be 4.
+
+The players have won 2 points each.
+SOLUTION */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function tennisGamePoints(score) {
+ let s=score.split("-");
+ let obj={
+ love:0,15:1,30:2,40:3
+ }
+
+ 
+  return s[1]!="all"?obj[s[0]]+obj[s[1]]:obj[s[0]]*2
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*TEST
+Test Cases:
+function an(score) {
+  var mid = score.indexOf('-');
+  var parseScore = score.split("-") ;
+  var scores = ['love', '15', '30', '40'];
+  if (parseScore[1] === 'all') {
+    return scores.indexOf(parseScore[0]) * 2;
+  }
+  return scores.indexOf(parseScore[0]) + scores.indexOf(parseScore[1]);
+}
+
+function rndc(){
+  var allc="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rndc1(){
+  var allc="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_ !@#$%^&*_(),.?|{}[]-=+\\/"
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rndclo(){
+  var allc="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rndcn(){
+  var allc="1234567890"
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rndcl(){
+  var allc="abcdefghijklmnopqrstuvwxyz"
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rndcno(){
+  var allc="1234567890_ !@#$%^&*_(),.?|{}[]-=+"
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rndch(){
+  var allc="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rnd9(){
+  var allc="123456789";
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rnd10(){
+  var allc="0123456789";
+  return allc[~~(allc.length*Math.random())]; 
+}
+function rnds(n){
+  var len= n||rand(2,8)
+  for (var i=0,rs=[];i<len;i++) rs[i]=rndcl();
+  return rs.join("");
+}
+function rndsx(n){
+  var len= n||rand(4,10)
+  for (var i=0,rs=[];i<len;i++) rs[i]=rndc();
+  return rs.join("");
+}
+function rndss(n){
+  var len= n||rand(2,20)
+  for (var i=0,rs=[];i<len;i++) rs[i]=rnds();
+  return rs.join(" ")
+}
+function rndsss(n){
+  var len= n||rand(5,15)
+  for (var i=0,rs=[];i<len;i++) rs[i]=rnds();
+  return rndch()+rs.join(" ")
+}
+
+function shuff(arr){
+  for(var i=0;i<100;i++){
+    var idx1=rand(0,arr.length-1),idx2=rand(0,arr.length-1)
+    var t=arr[idx1]
+    arr[idx1]=arr[idx2]
+    arr[idx2]=t
+  }
+}
+function rnds2(n){
+  var len= n||~~(15*Math.random())+4;
+  for (var i=0,rs=[];i<len;i++) rs[i]=rndcl();
+  return rs.join("");
+}
+function rand(from,to){
+  return Math.floor((to-from+1)*Math.random()+from)
+}
+
+
+
+
+
+
+
+function rndtest(big){
+  var r1=['love', '15', '30', '40'][rand(0,3)],
+      r2=['love', '15', '30', '40'][rand(0,3)]
+  if(r1==r2) r2=r2=="40"?['love', '15', '30'][rand(0,2)]:r2=="love"?[ '15', '30', '40'][rand(0,2)]:"all"
+  return r1+"-"+r2
+}
+
+
+
+
+
+
+function rndname(){
+  var len=3
+  for(var r=rndch(),i=0;i<len;i++) r+=rndcl()
+  return r
+}
+function rndarr(){
+  var len=rand(10,50),r1=[]
+  for (var i=0;i<len;i++) {
+    r1[i]=rand(1,99)
+  }
+  return r1
+}
+function rndarr2(){
+  var len=10000,len1=len+1,add=110000,r1=[],r2=[]
+  for (var i=0;i<len;i++) {
+    var t=rand(0,1000)%4?rand(1,len):rand(len1,add)
+    r1[i]=t
+    r2[i]=t
+  }
+  return [r1,r2]
+}
+
+function showResult(s,color="00cc00",who="Your"){
+  console.log("<font face='sans-serif' color='#"+color+"' size=3><b>"+who+" result is:</b></font><font face='sans-serif' color='#cccc00' size=3>"+
+      "\n"+s+"</font>","")
+}
+
+
+describe("Basic Tests", function(){ 
+it("It should works for basic tests.", function(){
+
+Test.assertEquals(tennisGamePoints("15-40"),4)
+
+Test.assertEquals(tennisGamePoints("30-all"),4)
+
+Test.assertEquals(tennisGamePoints("love-15"),1)
+
+Test.assertEquals(tennisGamePoints("love-30"),2)
+
+Test.assertEquals(tennisGamePoints("love-40"),3)
+
+Test.assertEquals(tennisGamePoints("15-love"),1)
+
+Test.assertEquals(tennisGamePoints("15-30"),3)
+
+})})
+
+var passed=0,failed=0,recfailed=[]
+
+describe("100 Random Tests --- Testing for correctness of solution", function(){
+  it("It should works for random tests.", function(){
+    for(var iii=0;iii<100;iii++){
+      var ddd=rndtest()
+      //eee=rand(1,50)*2,
+      //fff=rand(0,5),
+      //ggg=rand(2,30),hhh=rand(1,50),
+      console.log("<font face='sans-serif' color='#00cc00' size=3><b>Testing for:</b></font><font face='sans-serif' color='#eeee00' size=3>"+
+       "\nscore = "+JSON.stringify(ddd)
+      //+"\nm = "+JSON.stringify(eee)
+      //+"\nstandard = "+JSON.stringify(fff)
+      //+"\nc = "+JSON.stringify(ggg)
+      //+",  maxW = "+JSON.stringify(hhh)
+      +"</font>","")
+      var ans=an(ddd)
+      var useran=tennisGamePoints(ddd)
+      var thisispassed="Passed!"
+      if(JSON.stringify(useran)!=JSON.stringify(ans)) {
+        failed++
+        thisispassed=JSON.stringify(useran)
+      }
+      else{
+        passed++
+      }
+      //if(iii<30) 
+      Test.assertEquals(useran,ans)
+      //else Test.assertEquals(thisispassed,"Passed!")
+    }
+  });
+  
+});
+//console.log(recfailed)
+if(passed==100){
+describe("Happy Coding ^_^", function(){
+  console.log("<font color='#00aa00' size=2><b>I'm waiting for your <font color='#dddd00'>feedback, rank and vote.<font color='#00aa00'>many thanks! ;-)</b></font>","")  
+});
+}
