@@ -1,0 +1,63 @@
+/* TASK:
+Description:
+Happy Holidays fellow Code Warriors!
+Santa's senior gift organizer Elf developed a way to represent up to 26 gifts by assigning a unique alphabetical character to each gift. After each gift was assigned a character, the gift organizer Elf then joined the characters to form the gift ordering code.
+
+Santa asked his organizer to order the characters in alphabetical order, but the Elf fell asleep from consuming too much hot chocolate and candy canes! Can you help him out?
+
+Sort the Gift Code
+Write a function called sortGiftCode/sort_gift_code/SortGiftCode that accepts a string containing up to 26 unique alphabetical characters, and returns a string containing the same characters in alphabetical order.
+
+Examples:
+sortGiftCode( 'abcdef' ); //=> returns 'abcdef'
+sortGiftCode( 'pqksuvy' ); //=> returns 'kpqsuvy'
+sortGiftCode( 'zyxwvutsrqponmlkjihgfedcba' ); //=> returns 'abcdefghijklmnopqrstuvwxyz'
+SOLUTION*/
+
+
+
+
+
+
+
+
+function sortGiftCode(code){
+  return code.length<=26?code.split("").sort().join(""):"Too many characters"
+}
+
+
+
+
+
+
+
+/*
+TEST
+
+Test Cases:
+Array.prototype.shuffle = function(){
+  var copy = [].concat(this);
+  var ran1, ran2, tmp;
+  for(var i=0; i<copy.length*2; i++){
+    ran1 = Math.floor(Math.random()*copy.length);
+    ran2 = Math.floor(Math.random()*copy.length);
+    
+    tmp = copy[ran1]
+    copy[ran1] = copy[ran2];
+    copy[ran2] = tmp;
+  }
+  return copy;
+}
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var code, rand, solution;
+alphabet = alphabet.split('');
+
+
+for(var i=0; i<10; i++){
+  alphabet = alphabet.shuffle();
+  rand = Math.floor(Math.random() * 26) || 1;
+  code = alphabet.slice(0, rand).join('');
+  solution = code.split('').sort().join('');
+  Test.assertEquals(sortGiftCode(code), solution);
+}
+console.log('Congratulations and Happy Holidays from xDranik!');
