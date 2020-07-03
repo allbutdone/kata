@@ -1,0 +1,79 @@
+/* TASK:
+Description:
+Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+
+Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+Examples:
+
+number([]) // => []
+number(["a", "b", "c"]) // => ["1: a", "2: b", "3: c"]
+SOLUTION: */
+
+
+
+
+
+
+var number=function(array){
+  let arr=[];
+
+ for(let x=0;x<array.length;x++){
+ arr.push(`${x+1}: ${array[x]}`) 
+  }
+  return arr
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*TEST
+Test.describe("Tests", function() {
+  Test.it("Fixed Tests", function() {
+    Test.assertDeepEquals(number([]), []);
+    Test.assertDeepEquals(number(["a", "b", "c"]), ["1: a", "2: b", "3: c"]);
+    Test.assertDeepEquals(number(["", "", "", "", ""]), ["1: ", "2: ", "3: ", "4: ", "5: "]);
+  });
+  
+  
+  function genRandomTests(){
+    var test=[];
+    for (var i=0;i<100;i++){
+      test.push(String.fromCharCode(97 + Math.floor(Math.random()*74)));
+    }
+    var res=[];
+    for (var i=0;i<test.length;i++){
+      res.push((i+1).toString()+": "+test[i]);
+    }
+    
+    return {test:test.slice(),res:res.slice()};
+  }
+  
+  Test.it("Random Tests", function() {
+    for(var x=0;x<100;x++){
+      var test = genRandomTests();
+      Test.assertDeepEquals(number(test.test), test.res);
+    }
+  });
+});
