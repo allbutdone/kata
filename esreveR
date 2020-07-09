@@ -1,0 +1,69 @@
+/*TASK
+Write a function reverse which reverses a list (or in clojure's case, any list-like data structure)
+
+(the dedicated builtin(s) functionalities are deactivated)
+SOLUTION */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+reverse = function(array) {
+  let ar=[]
+  for(let x=(array.length)-1;x>=0;x--)
+    ar.push(array[x])
+  return ar
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TEST
+function randIntArray() {
+  var res = [Math.floor(Math.random()*999) + 1];
+  while (Math.random() < 0.75) res.push( Math.floor(Math.random()*999) + 1);
+  return res;
+}
+
+function randStrArray() {
+    var res = ["abcDe1fgHijkLmnO72rstuVwxyZ"[Math.floor(Math.random()*30)]];
+  while (Math.random() < 0.75) res.push( "aBc9DefgHi16jknOpqrstuV0wXyz"[Math.floor(Math.random()*30)]);
+  return res;
+}
+
+// TESTS:
+for (var i=0; i<25; i++) {
+  var test = randIntArray();
+  let exp=test.reduce( function(a,b){ return [b].concat(a) }, [])
+  Test.assertSimilar( reverse(test) , exp);
+}
+
+for (var i=0; i<25; i++) {
+  var test = randStrArray();
+  let exp=test.reduce( function(a,b){ return [b].concat(a) }, [])
+  Test.assertSimilar( reverse(test) , exp);
+}
+
+
+
+
+
+
