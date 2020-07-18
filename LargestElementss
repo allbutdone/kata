@@ -1,0 +1,60 @@
+/*TASK
+Description:
+Write a program that outputs the top n elements from a list.
+
+Example:
+
+largest(2, [7,6,5,4,3,2,1])
+// => [6,7]
+SOLUTION */
+
+
+
+
+
+
+
+
+
+
+function largest(n,xs){
+ let ar= xs.sort((a,b)=>a-b)
+
+  return n==0?[]:ar.slice(-n)
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+/* TEST
+Test Cases:
+Test.describe("Testing list with 10 elements", function(){
+  Test.assertSimilar(largest(2,[10,9,8,7,6,5,4,3,2,1]),[9,10])
+  Test.assertSimilar(largest(0,[10,9,8,7,6,5,4,3,2,1]),[],"0 largest of 10 elements")
+  Test.assertSimilar(largest(2,[-3,-2,-1,0,-9,-8,-7,-6,-4,-5]),[-1,0],"..elements may be negative")
+})
+
+Test.describe("Testing list with more elements", function(){
+  var rndN = 4e3+~~(Math.random()*4e3), rndA = [], top = [];
+  for( var t=10+~~(Math.random()*20); t>0; t-- ) top.push( rndN + 2*t )
+  for( var r=0; r<rndN; r++ ){ rndA.push(r) };
+  rndA = rndA.slice(rndN/2).concat(top,rndA.slice(0,rndN)).sort( function(){ return Math.random>.5 } )
+  top.sort(function(a,b){ return a-b } );
+  var t = top.length; rndN+=t;
+  
+  console.log("(List of "+rndN+" elements)")
+  Test.assertSimilar(largest(t,rndA),top, t+" largest of "+ rndN +" elements");
+  
+  rndA.sort(function(){ return Math.random>.5 });
+  t = ~~(Math.random()*top.length);
+  Test.assertSimilar(largest(t,rndA),top.slice(-t), t+" largest of "+ rndN +" elements");
+  
+})
