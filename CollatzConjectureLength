@@ -1,0 +1,81 @@
+/* TASK
+Description:
+The Collatz Conjecture states that for any natural number n, if n is even, divide it by 2. If n is odd, multiply it by 3 and add 1. If you repeat the process continously for n, n will eventually reach 1.
+
+For example, if n = 20, the resulting sequence will be:
+
+[20, 10, 5, 16, 8, 4, 2, 1]
+
+Write a program that will output the length of the Collatz Conjecture for any given n. In the example above, the output would be 8.
+
+For more reading see: http://en.wikipedia.org/wiki/Collatz_conjecture
+SOLUTION: */
+
+
+
+
+
+
+
+
+function collatz(n){
+  let counter=1;
+  while (n>1){
+     n%2===0?n=n/2:n=n*3+1
+    counter++
+  }
+  return counter
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+TEST
+
+
+
+Test Cases:
+Test.describe("Basic Tests",function(){
+Test.assertEquals(collatz(100), 26)
+Test.assertEquals(collatz(10), 7)
+Test.assertEquals(collatz(500), 111)
+Test.assertEquals(collatz(735674655192802), 366)
+Test.assertEquals(collatz(1000000000), 101)
+Test.assertEquals(collatz(1000000000000000), 276)
+})
+Test.describe("Random Tests",function(){
+function sollatz(n){
+  res=1;
+  while (n!=1){
+    n=n%2==1 ? n*3+1 : n/2;
+    res++;
+  }
+  return res;
+}
+for (_i=0;_i<40;_i++){
+  x=Math.floor(Math.random()*100000000000000);
+  Test.it("Testing for "+x.toString(),function(){
+    Test.assertEquals(collatz(x),sollatz(x),"It should work for random tests too")
+  })
+}
+})
